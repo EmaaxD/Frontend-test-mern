@@ -20,25 +20,7 @@ export const MainLayout = () => {
           </Typography>
         </Box>
 
-        {pathname === "/" && (
-          <Box mb={4.5}>
-            <MainCard>
-              <Typography
-                color="white"
-                variant="h6"
-                textAlign="center"
-                // lineHeight={0.5}
-                mb={0}
-              >
-                Busca un cliente
-              </Typography>
-
-              <Box display="flex" justifyContent="center">
-                <MainSearch />
-              </Box>
-            </MainCard>
-          </Box>
-        )}
+        {pathname === "/" && <MainSearch />}
 
         <Stack spacing={5}>
           <MainCard>

@@ -160,6 +160,7 @@ export const ClientList = () => {
             rowsPerPageOptions={[5, 10, 20]}
             component="div"
             count={clientsState.length}
+            labelRowsPerPage="Mostrar en"
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TextField, Autocomplete } from "@mui/material";
+import { TextField, Autocomplete, Box, Typography } from "@mui/material";
 
 import { useAppSelector } from "src/app/hooks";
+import { MainCard } from "./MainCard";
 
 export interface AutocompleteOption {
   label: string;
@@ -46,23 +47,33 @@ export const MainSearch = () => {
 
   return (
     <>
-      <Autocomplete
-        disablePortal
-        value={value || null}
-        onChange={(event: any, newValue: string) => {
-          setValue(newValue);
-        }}
-        inputValue={input}
-        onInputChange={(event, newInputValue) =>
-          handleChangeAutocomplete(newInputValue)
-        }
-        id="combo-box-client"
-        options={options}
-        sx={{ width: 300, mt: 0 }}
-        renderInput={(params) => (
-          <TextField {...params} label="Clientes" size="small" />
-        )}
-      />
+      <Box mb={4.5}>
+        <MainCard>
+          <Typography color="white" variant="h6" textAlign="center" mb={0}>
+            Busca un cliente
+          </Typography>
+
+          <Box display="flex" justifyContent="center">
+            <Autocomplete
+              disablePortal
+              value={value || null}
+              onChange={(event: any, newValue: string) => {
+                setValue(newValue);
+              }}
+              inputValue={input}
+              onInputChange={(event, newInputValue) =>
+                handleChangeAutocomplete(newInputValue)
+              }
+              id="combo-box-client"
+              options={options}
+              sx={{ width: 300, mt: 0 }}
+              renderInput={(params) => (
+                <TextField {...params} label="Clientes" size="small" />
+              )}
+            />
+          </Box>
+        </MainCard>
+      </Box>
     </>
   );
 };
